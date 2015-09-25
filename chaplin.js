@@ -903,7 +903,7 @@ module.exports = Layout = (function(_super) {
 
   Layout.prototype.isExternalLink = function(link) {
     var _ref, _ref1;
-    return link.target === '_blank' || link.rel === 'external' || ((_ref = link.protocol) !== 'http:' && _ref !== 'https:' && _ref !== 'file:' && _ref !== 'ms-appx:') || ((_ref1 = link.hostname) !== location.hostname && _ref1 !== '');
+    return link.target === '_blank' || link.rel === 'external' || ((_ref = link.protocol) !== 'http:' && _ref !== 'https:' && _ref !== 'file:' && _ref !== 'ms-appx:' && _ref !== 'ms-appx-web:') || ((_ref1 = link.hostname) !== location.hostname && _ref1 !== '');
   };
 
   Layout.prototype.openLink = function(event) {
@@ -2310,7 +2310,7 @@ module.exports = Router = (function() {
     this.options = options != null ? options : {};
     this.match = __bind(this.match, this);
 
-    isWebFile = window.location.protocol !== 'file:' && window.location.protocol !== 'ms-appx:';
+    isWebFile = window.location.protocol !== 'file:' && window.location.protocol !== 'ms-appx:' && window.location.protocol !== 'ms-appx-web:';
     _.defaults(this.options, {
       pushState: isWebFile,
       root: '/',
